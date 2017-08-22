@@ -62,6 +62,7 @@ public class TechJobs {
 
                 if (searchField.equals("all")) {
                     //System.out.println("Search all fields not yet implemented.");
+                    //pass in the search term to find the value, they are already on search all
                     printJobs(JobData.findByValue(searchTerm));
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
