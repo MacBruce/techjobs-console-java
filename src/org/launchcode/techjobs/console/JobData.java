@@ -99,7 +99,7 @@ public class JobData {
 
             for (String item : row.values()) {
 
-                //item to lowercase isn't working
+                //item to lowercase before adding
                 item.toLowerCase();
 
                 if(item.contains(value)) {
