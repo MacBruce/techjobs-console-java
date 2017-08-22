@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+
 /**
  * Created by LaunchCode
  */
@@ -81,6 +82,33 @@ public class JobData {
             }
         }
 
+        return jobs;
+    }
+
+
+    //find value ref in main by term - w/ sout
+    public static ArrayList<HashMap<String, String>> findByValue(String value) {
+        //load file
+        loadData();
+
+        //create container for holding in memory
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        //iterate over a a row and then subsequent columns
+        for (HashMap<String, String> row : allJobs) {
+
+            for (String item : row.values()) {
+
+                //item to lowercase isn't working
+                item.toLowerCase();
+
+                if(item.contains(value)) {
+                    jobs.add(row);
+                    break;
+                }
+            }
+        }
+        //return the list of maps or cheap hash table
         return jobs;
     }
 
