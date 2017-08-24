@@ -58,7 +58,12 @@ public class TechJobs {
 
                 // What is their search term?
                 System.out.println("\nSearch term: ");
-                String searchTerm = in.nextLine();
+                // put searchterm to lower case, trying to debug why it
+                //isn't allowing me to query what I need done
+                //I had previously used a substring
+                String searchTerm = in.nextLine().toLowerCase();
+                //String mutated = searchTerm.substring(0, 1).toUpperCase() + searchTerm.substring(1).toLowerCase();
+                // for some reason the above works but the above function doesn't
 
                 if (searchField.equals("all")) {
                     //System.out.println("Search all fields not yet implemented.");

@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -44,6 +45,7 @@ public class JobData {
             }
         }
 
+
         return values;
     }
 
@@ -75,9 +77,9 @@ public class JobData {
 
         for (HashMap<String, String> row : allJobs) {
 
-            String aValue = row.get(column);
+            String singValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (singValue.toLowerCase().contains(value)) {
                 jobs.add(row);
             }
         }
@@ -94,15 +96,18 @@ public class JobData {
         //create container for holding in memory
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
+
+        String mutate = value.substring(0, 1).toUpperCase() + value.substring(1).toLowerCase();
+
         //iterate over a a row and then subsequent columns
         for (HashMap<String, String> row : allJobs) {
 
             for (String item : row.values()) {
 
                 //item to lowercase before adding
-                item.toLowerCase();
+                //item.toLowerCase();
 
-                if(item.contains(value)) {
+                if(item.contains(mutate)) {
                     jobs.add(row);
                     break;
                 }
